@@ -1,0 +1,24 @@
+# Add 'docs' label to any markdown updates
+documentation:
+  - README.md
+  - CHANGELOG.md
+  - SECURITY.md
+
+# Add 'source' label to any change in the src dir
+source:
+  - src/**/*
+
+# Add 'test' label to any change in the tests dir
+tests:
+  - tests/**/*
+
+# Add 'repo' label to any changes to dotfiles etc
+repo:
+  - .github/.labeler.yml
+  - .gitignore
+  - .poetry-version
+  - .pre-commit-config.yaml
+  - .python-version
+  - Makefile
+  - poetry.lock
+  - pyproject.toml
