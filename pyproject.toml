@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-boilerplate"
-version = "0.1.0"
+version = "0.1.1"
 description = "Template python project which depends on Poetry, conventional commits and automatic semantic versioning."
 authors = ["Paul Marsh <61422343+PTMGitHub@users.noreply.github.com>"]
 license = "MIT"
