@@ -56,5 +56,5 @@ black: setup ## Run black against python code
 .PHONY: black
 
 test: setup ## Run functional and unit tests
-	@poetry run pytest tests/unit --cov=src
+	@poetry run pytest tests/unit --cov=src -v --cov-report xml --cov-config=./.coveragerc
 .PHONY: test
