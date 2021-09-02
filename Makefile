@@ -56,6 +56,5 @@ black: setup ## Run black against python code
 .PHONY: black
 
 test: setup ## Run functional and unit tests
-	#PYTHONPATH='src' pytest tests/unit --cov=src
-	@echo "testy"
+	pytest tests/unit --cov=src
 .PHONY: test
