@@ -56,5 +56,5 @@ black: setup ## Run black against python code
 .PHONY: black
 
 test: setup ## Run functional and unit tests
-	pytest tests/unit --cov=src
+	@poetry run pytest tests/unit --cov=src
 .PHONY: test
