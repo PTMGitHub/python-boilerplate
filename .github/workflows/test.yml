@@ -1,0 +1,47 @@
+name: Test
+on:
+  pull_request:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Read Python
+        id: python-version
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./.python-version
+
+      - name: Read Poetry
+        id: poetry-version
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./.poetry-version
+
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: ${{ steps.python-version.outputs.content }}
+
+      - name: Setup Poetry
+        uses: Gr1N/setup-poetry@v5
+        with:
+          poetry-version: ${{ steps.poetry-version.outputs.content }}
+
+      - name: Cache VirtualEnv
+        uses: actions/cache@v2
+        id: cache-venv
+        with:
+          path: /home/runner/work/python-boilerplate/python-boilerplate/.venv
+          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+
+      - name: Install Dependencies
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: make setup
+
+      - name: Run tests
+        run: make test

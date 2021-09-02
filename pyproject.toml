@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "python-boilerplate"
+version = "0.1.0"
+description = "Template python project which depends on Poetry, conventional commits and automatic semantic versioning."
+authors = ["Paul Marsh <61422343+PTMGitHub@users.noreply.github.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+black = "^21.8b0"
+commitizen = "^2.18.0"
+pytest = "^6.2.5"
+pytest-cov = "^2.12.1"
+python-semantic-release = "^7.19.1"
+bandit = "^1.7.0"
+
+[tool.semantic_release]
+branch = "develop"
+build_command = false
+upload_to_pypi = false
+upload_to_release = false
+version_toml = "pyproject.toml:tool.poetry.version"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
